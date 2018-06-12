@@ -1,0 +1,13 @@
+mainwnd.py
+inputdlg.py
+res_rc.py
+
+*.py[cod]
+down_roms
+*.csv
+
+dist
+build
+venv
+
+helper.spec
