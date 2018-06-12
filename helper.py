@@ -189,6 +189,9 @@ class HelperWnd(QWidget):
         self.ui.flasher_btn.setText(u'终止烧录')
 
     def checksum(self, content, csum):
+        print(csum)
+        print(len(content))
+        print(type(content))
         md5 = lambda x: hashlib.md5(x).hexdigest()
         return md5(content) == csum
 
@@ -252,6 +255,7 @@ class HelperWnd(QWidget):
         self.console_log(u'正从网络下载选定固件，请稍后')
         self.http = QtNetwork.QHttp(parent=self)
         self.http.done.connect(functools.partial(self.on_firmware_download_done, fid))
+        print('fid: %d' % fid)
         self.url = QtCore.QUrl('https://espush.cn/api/portal/admin/down/firmwares/%d' % fid)
         self.http.setHost(self.url.host(), QtNetwork.QHttp.ConnectionModeHttps, self.url.port(443))
         self.download_firmware_reqid = self.http.get(self.url.path())

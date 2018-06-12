@@ -8,7 +8,6 @@ import time
 import serial
 import struct
 import hashlib
-import requests
 from serial.tools.list_ports import comports
 
 
